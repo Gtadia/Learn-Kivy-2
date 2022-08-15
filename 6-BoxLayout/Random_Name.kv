@@ -1,0 +1,44 @@
+#:kivy 2.1.0
+
+<MyBoxLayout>
+    BoxLayout:
+        size: root.width, root.height       # 1
+        orientation: "vertical"     # 2
+
+        spacing: 20     # 3
+        padding: 50 # 4 
+
+        Button:
+            text: "Hello"
+        Button: 
+            text: "How"
+        Button:
+            text: "Are"
+        Button:
+            text: "You"
+
+            pos_hint: {"center_x": 0.5}
+            size_hint: (None, None)
+            width: 200
+            height: 50      # 5
+
+# 1
+# The default size of the BoxLayout widget (and virtually every other widget) is 100 by 100 
+# So you can fix this with "size" equalling the size of the window
+
+# 2 
+# With BoxLayout, we can choose to either stack the widgets vertically or horizontally
+#
+# "vertical"    or      "horizontal"
+
+# 3
+# "spacing" is the spacing between the buttons
+# 
+# spacing = 20      ==>         20 pixels of spacing
+
+# 4
+# You can add a padding around the entire BoxLayout "widget" 
+
+# 5
+# Just changing the sizing and position
+
