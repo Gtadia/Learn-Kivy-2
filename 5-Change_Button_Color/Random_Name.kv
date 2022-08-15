@@ -1,0 +1,64 @@
+#:kivy 2.1.0
+#:import utils kivy.utils
+# 1
+
+<MyGridLayout>
+    name:name_for_kv
+    pizza:pizza_for_kv
+    color:color_for_kv
+    text:text_for_kv
+
+    GridLayout:
+        cols: 1
+        size: root.width, root.height
+        GridLayout: 
+            cols: 2
+
+            Label: 
+                text: "Name"
+                background_color: (0, 1, 0, 1)  # 2
+            TextInput:
+                id: name_for_kv
+                multiline: False
+
+            Label: 
+                text: "Favorite Pizza"
+            TextInput:
+                id: pizza_for_kv
+                multiline: False
+
+            Label: 
+                text: "Favorite Color"
+            TextInput:
+                id: color_for_kv 
+                background_color: utils.get_color_from_hex("#eeff00 ")    # 3
+                multiline: False            
+        
+        Button:
+            text: "Submit"
+            font_size: 72
+            on_press: root.button_press()
+            background_normal: ''           # 4(a)
+            background_color: (0, 1, 0, 1)  # 4(b) 
+        
+        Label:
+            id: text_for_kv
+
+
+# 1 
+# This is an import statement in kivy   
+#   Import "utils" from the "kivy.utils" package
+
+# 2
+# Labels don't have a background so we can't really change the background color
+
+# 3 
+# We are using the package imported by "kivy.utils" to convert the hex values into color
+# We don't need "background_normal = '' " because textboxes are already white so the color is going to be accurate anyways 
+
+# 4
+# Because kivy is weird, the button's default/normal color is grey but if you don't remove this grey color, the background 
+# color and the normal color will be mixed together
+#
+# That's why we have background_normal = '', which sets the "normal" color to nothing
+

@@ -1,18 +1,17 @@
 import kivy
 from kivy.app import App
-
-# We don't need the commeneted imports because the .kv file handles it on its own.
-
-# from kivy.uix.label import Label
-# from kivy.uix.gridlayout import GridLayout
-# from kivy.uix.textinput import TextInput    # text boxes
-# from kivy.uix.button import Button
+from kivy.uix.label import Label
+from kivy.uix.gridlayout import GridLayout
+from kivy.uix.textinput import TextInput
+from kivy.uix.button import Button
 from kivy.uix.widget import Widget
 from kivy.properties import ObjectProperty
+from kivy.lang import Builder  
+
+Builder.load_file("Random_Name.kv")
 
 class MyGridLayout(Widget):
-
-    name = ObjectProperty(None)   # This is the variable from the kivy file 
+    name = ObjectProperty(None)
     pizza = ObjectProperty(None)
     color = ObjectProperty(None)
     text = ObjectProperty("Hello")
@@ -21,7 +20,7 @@ class MyGridLayout(Widget):
         name = self.name.text
         pizza = self.pizza.text
         color = self.color.text
-        self.text.text = ((f"Hello {name}, you like {pizza} pizza and your favorite favorite color is {color}"))    # Added to the "main" widget/GridLayout
+        self.text.text = ((f"Hello {name}, you like {pizza} pizza and your favorite favorite color is {color}"))
 
         self.name.text = ""
         self.pizza.text = ""

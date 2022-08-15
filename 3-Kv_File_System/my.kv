@@ -1,0 +1,72 @@
+#:kivy 2.1.0
+# 1 
+
+<MyGridLayout>
+    # 2
+
+    name:name_for_kv
+    pizza:pizza_for_kv
+    color:color_for_kv     # 3 
+    text:text_for_kv
+
+    GridLayout:
+        cols: 1
+        size: root.width, root.height   # 4
+        GridLayout: 
+            cols: 2
+
+            Label: 
+                text: "Name"
+            TextInput:
+                id: name_for_kv     # 5
+                multiline: False
+
+            Label: 
+                text: "Favorite Pizza"
+            TextInput:
+                id: pizza_for_kv
+                multiline: False
+
+            Label: 
+                text: "Favorite Color"
+            TextInput:
+                id: color_for_kv 
+                multiline: False            
+        
+        Button:
+            text: "Submit"
+            font_size: 72
+            on_press: root.button_press()      # 6
+        
+        Label:
+            id: text_for_kv
+
+
+# 1 
+# When you create a .kv file, you want the name to be what the "main.py"'s main class name is minus "App" (and its all lowercase)
+# (So in this examle, our main class name is "MyApp", therefore, this kivy file's name is "my").
+# 
+# If the main class does end in "App", then the name of the kivy file is the same as the name of the class name
+#
+# Kivy will automatically look for this kivy file based on the name of the main class name (and therefore we don't need to reference it)
+
+# 2 
+# We are recreating what we did in "2-Height_and_Width_of_Widgets" but using the Kivy design file
+
+# 3 
+# These are variables in kivy and python (used to reference variables/data between the python file and the kivy file)
+# <variable for Widget>:<variable used within kivy>
+# 
+# <varible for widget>          ==>     used in the python file     (Creates an ObojectProperty within the widget)
+# <variable used within kivy>   ==>     used in the kivy file
+
+# 4
+# Since the default size of a widget is 100 by 100, we are going to update the size of the to the root width and 
+# the root height (the width and height of the window)
+
+# 5
+# We can give certain widgets id in order to refer back to it to either change things or pull data from it
+
+# 6
+# In python, we would be binding the button to an action and this is basically what you are doing here except that
+# it's not really binding the button to an action/function but rather runs the function once clicked. 
