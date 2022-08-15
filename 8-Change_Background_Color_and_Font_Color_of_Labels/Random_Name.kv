@@ -1,0 +1,57 @@
+#:kivy 2.1.0
+
+<Button>
+    font_size: 50 
+    background_color: ''
+    background_color: (1, 0, 0, 1)
+<TextInput>
+    background_color: (1, 1, 0, 1)
+
+
+<MyLayout>
+    BoxLayout:
+        size: root.width, root.height
+        orientation: "vertical"
+
+        spacing: 10
+        padding: 10
+
+        Label:
+            text: "Name"
+            
+            background_color: (1, 0, 1, 1)
+
+            canvas.before:
+                # 1
+                Color:
+                    rgb: self.background_color  # 2(a)
+                Rectangle:
+                    size: self.size     # 2(b)
+                    pos: self.pos       # 2(c)
+            
+            # Text Properties
+            font_size: 50
+            color: (0, 1, 0, 1)
+            bold: True
+            italic: True
+            outline_color: (0, 0, 0)
+            outline_width: 3        # 3
+
+        TextInput:
+            multiline: False
+    
+        Button: 
+            text: "Clear"
+
+# 1 
+# In order to change the "background" color of labels, we are just going to put a canvas behind the 
+# label.
+
+# 2 
+# "self" refers to the Label widget (and "root" refers back to "MyLayout")
+# 
+# 2(b) and 2(c) just makes the rectangle the size of the label and puts it where the label is located
+
+# 3
+# We can change the styling of the font/text
+# ** THIS CAN BE DONE FOR THE OTHER WIDGETS, SUCH AS BUTTONS **

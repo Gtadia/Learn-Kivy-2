@@ -1,0 +1,58 @@
+#:kivy 2.1.0
+
+<Button>
+    font_size: 50 
+    background_color: ''
+    background_color: (1, 0, 0, 1)
+<TextInput>
+    background_color: (1, 1, 0, 1)
+
+
+<MyLayout>
+    # canvas.before: 
+    #     Color: 
+    #         rgb: (1, 1, 1)
+    #     Rectangle:
+    #         size: self.size     # 1
+    #         # pos: self.pos     # 2
+        
+    BoxLayout:
+        size: root.width, root.height
+        orientation: "vertical"
+
+        spacing: 10
+        padding: 10
+
+        Label:
+            text: "Name"
+            
+            background_color: (1, 0, 1, 1)
+
+            canvas.before:
+                Color:
+                    rgb: self.background_color
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            
+            font_size: 50
+            color: (0, 1, 0, 1)
+            bold: True
+            italic: True
+            outline_color: (0, 0, 0)
+            outline_width: 3
+
+        TextInput:
+            multiline: False
+    
+        Button: 
+            text: "Clear"
+
+
+# 1 
+# You can change the background color in the "hacky" kind of way by making a canvas with a different color that goes
+# before/under everything (but not really a new background color)
+
+# 2
+# The default position is already the origin of the window (and not the origin of the widget, except for FloatLayout,
+# which is basically the Absolute Position of Kivy).
