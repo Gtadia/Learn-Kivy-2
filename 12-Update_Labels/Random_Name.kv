@@ -1,0 +1,38 @@
+#:kivy 2.1.0
+<Button>
+    font_size: 32
+    size_hint: (0.3, 0.3)
+
+<MyLayout>
+    BoxLayout:
+        size: root.width, root.height 
+        orientation: "vertical"
+
+        Label:
+            id: label_in_kivy
+            text: "What's Your Name?"
+            font_size: 32
+
+        TextInput:
+            id: textinput_in_kivy
+            multiline: False
+            size_hint: (1, 0.5)
+
+        Button:
+            id: button_in_kivy          # 1
+            size_hint: (1, 0.5)
+            font_size: 32
+            text: "Submit"
+            on_press: root.press()      # 2
+
+
+# 1
+# The "id" attribute can be accessed within the python file with "self.ids.<name_of_id>"
+#
+# EX: self.ids.button_in_kivy
+
+# 2
+# When the button is pressed, the press funciton in the root file (the root python file, which is main.py) is going to 
+# be executed 
+
+        

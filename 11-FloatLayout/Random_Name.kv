@@ -1,0 +1,53 @@
+#:kivy 2.1.0
+<Button>
+    font_size: 32
+    size_hint: (0.3, 0.3)
+
+<MyLayout>
+    FloatLayout:
+    # 1 
+        size: root.width, root.height
+        
+        Button:
+            text: "Top Left"
+            pos_hint: {"x": 0, "top": 1}    # 2
+
+        Button:
+            text: "Top Right"
+            pos_hint: {"x": 0.7, "top": 1}    # 3(a)
+
+        Button:
+            text: "Bottom Left"
+            pos_hint: {"x": 0}      # 4
+
+        Button:
+            text: "Bottom Right"
+            pos_hint: {"right": 1, "bottom": 1}     # 3(b)
+
+        Button:
+            text: "Center"
+            pos_hint: {"x": 0.35, "y": 0.35}      # 5
+
+
+
+# 1 
+# FloatLayout 
+
+# 2 
+# pos_hint      Tells where the widgets should go
+#
+# {x, y, top, bottom, left, right}
+
+# 3
+# We're only going 0.7 for x because the position of the buttons are based from the bottom left corner and so 100% 
+# would be completely off the screen.
+#
+# Furthermore, the button is 0.3 of the width of the screen so 1- 0.3 = 0.7
+#
+# OR we could have avoided this problem using "right": 0 instead
+
+# 4
+# It was already at the bottom
+
+# 5
+# 0.5 - (0.3/2) = 0.5 - 0.15 = 0.35

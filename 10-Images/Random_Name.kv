@@ -1,0 +1,22 @@
+#:kivy 2.1.0
+
+<MyLayout>
+    BoxLayout:
+        size: root.width, root.height
+        orientation: "vertical"
+
+        Image:
+            source: 'images/DOGE.jpeg'   # 1 
+            allow_stretch: True          # 2(a)
+            keep_ratio: False            # 2(b)
+
+
+# 1
+# This is how you add images in kivy
+
+# 2 
+# This allows you to stretch the image to fit the screen
+# 
+# If you kept "keep_ratio: True", then the image will try to fit the size of the widget without being distorted
+# 
+# If "keep_ratio: False", then the entire image will fill the widget but it will be "stretched"/distorted  
