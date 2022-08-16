@@ -1,0 +1,32 @@
+<MyLayout>
+    BoxLayout:
+        orientation: "vertical"
+        size: root.width, root.height
+
+        Accordion:
+            orientation: 'vertical'     # 1
+            
+            AccordionItem:
+                title: "Panel 1"
+                Label:
+                    text: "Panel 1 Text"
+                    font_size: 32
+            AccordionItem:
+                title: "Panel 2"
+                Image:
+                    source: "images/DOGE.jpeg"
+                    allow_stretch: True
+            AccordionItem:
+                title: "Panel 3"
+                Label:
+                    text: "Panel 3 Text"
+                    font_size: 32
+            AccordionItem:
+                title: "Panel 4"
+                Image:
+                    source: "images/DOGE.jpeg"
+                    allow_stretch: True
+
+
+# 1
+# We can orientate the Accordion along the "horizontal" or "vertical" axis

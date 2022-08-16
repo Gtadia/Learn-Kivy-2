@@ -1,0 +1,35 @@
+<MyLayout>
+
+    slider_text slider_label
+    BoxLayout:
+        orientation: "vertical"
+        size: root.width, root.height
+
+        Label: 
+            id: slider_label
+            text: "Slide the Slider"
+            font_size: 32
+
+        Slider: 
+            id: slider_value 
+            min: 1
+            max: 50     # 1
+            step: 1     # 2
+            orientation: "horizontal"           # 3
+            on_value: root.slide_it(*args)      # 4
+
+
+# 1
+# You set the minimum and maximum value of the slider and you can get these values using the ID
+
+# 2
+# The increments of the slider
+
+# 3 
+# We can se the orientation of the slider (horizontal or vertical)
+
+# 4
+# on_value is like on_press except that it executes the code everytime the value of the slider changes
+#
+# *args     ==>     Will pass in the name of the slider (the name of the python object that we can't 
+# read) and it will also pass the number 

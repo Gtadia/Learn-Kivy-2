@@ -1,0 +1,38 @@
+<MyLayout>
+    BoxLayout:
+        orientation: "vertical"
+        size: root.width, root.height
+
+        Carousel: 
+            # 1
+            direction: "right"  # 2
+
+            Image:
+                source: "images/DOGE.jpeg"
+
+            Label:
+                text: "Hello World!"
+                font_size: 60
+                color: (1, 0, 0)
+            
+            Image:
+                source: "images/DOGE.jpeg"
+
+            AsyncImage:
+                source: "https://kivycoder.com/wp-content/accordions-for-kivy-python-kivy.jpg"
+
+
+
+
+# 1
+# The carousel is basically a slideshow (where you can you slide between all the different images/slides)
+
+# 2
+# You can also set the direction to go 
+#   left
+#   right
+#   top 
+#   bottom
+
+# 3
+# You can get images from the web using "AsyncImage"
