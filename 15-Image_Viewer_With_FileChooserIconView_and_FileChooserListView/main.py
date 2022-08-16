@@ -10,6 +10,7 @@ class MyLayout(Widget):
         # This is a file that has been selected from the kivy gui
         try:
             self.ids.my_image.source = filename[0]
+            print(filename[0])          # We can see that "my_filechooser.selection" returns the filepath once a file has been selected (and not everytime you open a folder)
         except:
             print("It didn't work")
 
@@ -20,4 +21,4 @@ class MyApp(App):
 
 
 if __name__ == "__main__":
-    MyApp().run()
+    MyApp().run() 

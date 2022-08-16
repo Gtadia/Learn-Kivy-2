@@ -10,17 +10,21 @@
         Image: 
             id: my_image
 
-        FileChooserIconView:
-            # 1 
+        FileChooserListView:      
+            # 1(a) 
+        # FileChooserIconView:
+            # 1(b)
             id: my_filechooser
             on_selection: my_widget_example.my_selected(my_filechooser.selection)      # 2 
 
 
 # 1
-# This is the file chooser menu with the icons
+# 1(b): This is the file chooser menu with the icons
 #
 # Even without doing anything, we can see the file structure of our computer 
 # (not just this directory but EVERYTHING (by default))
+# 
+# 1(a): This is the filechooser list view
 
 # 2
 # on_selection is like on_press but instead of a press of a button, it a press of a file/folder.
