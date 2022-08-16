@@ -1,0 +1,142 @@
+<MyLayout>
+    BoxLayout:
+        orientation: "vertical"
+        size: root.width, root.height
+
+        TextInput: 
+            id: calc_input
+            text: "0"
+            halign: "right"     # 1
+            font_size: 65
+            size_hint: (1, 0.15)
+
+        GridLayout: 
+            cols: 4
+            rows: 5
+
+            Button: 
+                size_hint: (0.25, 0.2)
+                font_size: 32
+                text: "%"
+            Button: 
+                size_hint: (0.25, 0.2)
+                font_size: 32
+                text: "C"
+                on_press: root.clear()
+            Button: 
+                size_hint: (0.25, 0.2)
+                font_size: 32
+                text: u"\u00AB"         # 2
+                on_press: root.backspace()
+            Button: 
+                size_hint: (0.25, 0.2)
+                font_size: 32
+                text: "/"
+                on_press: root.math_operation(self.text)
+            Button: 
+                size_hint: (0.25, 0.2)
+                font_size: 32
+                text: "7"
+                background_color: (157/255, 155/255, 155/255, 1)
+                on_press: root.button_press(7)      # 3
+            Button: 
+                size_hint: (0.25, 0.2)      # 4(a)
+                font_size: 32
+                text: "8"
+                background_color: (157/255, 155/255, 155/255, 1)
+                on_press: root.button_press(8)
+            Button: 
+                size_hint: (0.2, 0.2)       # 4(b)
+                font_size: 32
+                text: "9"
+                background_color: (157/255, 155/255, 155/255, 1)
+                on_press: root.button_press(9)
+            Button: 
+                size_hint: (0.1, 0.2)       # 4(c)
+                font_size: 32
+                text: "*"
+                on_press: root.math_operation(self.text)
+            Button: 
+                size_hint: (0.02, 0.2)      # 4(d)
+                font_size: 32
+                text: "4"
+                background_color: (157/255, 155/255, 155/255, 1)
+                on_press: root.button_press(4)
+            Button: 
+                size_hint: (0.2, 0.2)
+                font_size: 32
+                text: "5"
+                background_color: (157/255, 155/255, 155/255, 1)
+                on_press: root.button_press(5)
+            Button: 
+                size_hint: (0.2, 0.2)
+                font_size: 32
+                text: "6"
+                background_color: (157/255, 155/255, 155/255, 1)
+                on_press: root.button_press(6)
+            Button: 
+                size_hint: (0.2, 0.2)
+                font_size: 32
+                text: "-"
+                on_press: root.math_operation(self.text)
+            Button: 
+                size_hint: (0.2, 0.2)
+                font_size: 32
+                text: "1"
+                background_color: (157/255, 155/255, 155/255, 1)
+                on_press: root.button_press(1)
+            Button: 
+                size_hint: (0.2, 0.2)
+                font_size: 32
+                text: "2"
+                background_color: (157/255, 155/255, 155/255, 1)
+                on_press: root.button_press(2)
+            Button: 
+                size_hint: (0.2, 0.2)
+                font_size: 32
+                text: "3"
+                background_color: (157/255, 155/255, 155/255, 1)
+                on_press: root.button_press(3)
+            Button:
+                size_hint: (0.2, 0.2)
+                font_size: 32
+                text: "+"
+                on_press: root.math_operation(self.text)
+            Button: 
+                size_hint: (0.2, 0.2)
+                font_size: 32
+                text: "+/-"
+                background_color: (157/255, 155/255, 155/255, 1)
+                on_press: root.pos_neg()
+            Button: 
+                size_hint: (0.2, 0.2)
+                font_size: 32
+                text: "0"
+                background_color: (157/255, 155/255, 155/255, 1)
+                on_press: root.button_press(0)
+            Button: 
+                size_hint: (0.2, 0.2)
+                font_size: 32
+                text: "."
+                background_color: (157/255, 155/255, 155/255, 1)
+                on_press: root.dot()
+            Button: 
+                size_hint: (0.2, 0.2)
+                font_size: 32
+                text: "="
+                on_press: root.equals()
+
+# 1
+# halign aligns the text inside the text box 
+#
+# halign = right        ==>     text will go from right to left (instead of the default left to right)
+
+# 2 
+# You can type in unicode name of a certain text character and Python will find it and will use it
+
+# 3
+# We can pass in parameter data to functions with parameters within the root python file
+
+# 4
+# As you can see, even though it's supposed to be size_hint_x: 0.25, 0.2 still works fine and doesn't really 
+# change the size of the button for some reason
