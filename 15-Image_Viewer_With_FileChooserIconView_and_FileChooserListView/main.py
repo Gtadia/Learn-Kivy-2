@@ -7,9 +7,11 @@ Builder.load_file("my_kivy_file.kv")
 
 class MyLayout(Widget):
     def my_selected(self, filename):
-        # This is a file that has been selected from the ui 
+        # This is a file that has been selected from the kivy gui
         try:
-            self.ids.my_image.source = "self.ids."
+            self.ids.my_image.source = filename[0]
+        except:
+            print("It didn't work")
 
 class MyApp(App):   
     def build(self):
