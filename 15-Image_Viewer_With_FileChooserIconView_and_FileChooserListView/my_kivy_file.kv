@@ -1,0 +1,29 @@
+<MyLayout>
+    id: my_widget_example
+    BoxLayout:
+        orientation: "vertical"
+        size: root.width, root.height
+
+        padding: 50
+        spacing: 20
+
+        Image: 
+            id: my_image
+
+        FileChooserIconView:
+            # 1 
+            id: my_filechooser
+            on_selection: my_widget_example.my_selected(my_filechooser.selection)      # 2 
+
+
+# 1
+# This is the file chooser menu with the icons
+#
+# Even without doing anything, we can see the file structure of our computer 
+# (not just this directory but EVERYTHING (by default))
+
+# 2
+# on_selection is like on_press but instead of a press of a button, it a press of a file/folder.
+# 
+# Whichever file that gets choosen in the FileChooseIconView widget/my_filechooser that is selected 
+# is going to be saved into "my_widget_example"/root. (the root python file)

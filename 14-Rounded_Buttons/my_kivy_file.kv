@@ -1,0 +1,56 @@
+<MyLayout>
+    BoxLayout:
+        orientation: "vertical"
+        size: root.width, root.height
+
+        padding: 50
+        spacing: 20
+
+        Button: 
+            text: "Hello World"
+
+        # Button: 
+        #     text: "Goodbye World!"
+        #     size_hint: (1, 0.3)             # 1
+
+        #     background_color: (48/225, 84/225, 150/225, 1)
+        #     background_normal: ''
+
+        # NOW YOU CAN REPLACE BUTTON WITH "RoundedButton" (A canvas with a rounded rectangle but has button attributes)
+        RoundedButton: 
+            text: "Goodbye World!"
+            size_hint: (1, 0.3)
+
+            on_press: print("THIS BUTTON WORKS")    # 2
+        
+
+        
+<RoundedButton@Button>
+    # 3
+    background_color: (0, 0, 0, 0)
+    background_normal: ''
+    canvas.before:
+        Color:
+            rgba: (48/225, 84/225, 150/225, 1)
+        RoundedRectangle:
+            size: self.size
+            pos: self.pos
+            radius: [160]        # 4
+
+
+# 1 
+# This is size_hint (and if we had pos_hint, we would include that too) of the section allocated to this button by BoxLayout
+
+# 2
+# When we press this button, currently we don't see any indication that we pressed the button (i.e: the color doesn't change)
+#
+# This is because when we imported in the button, we somehow lost the attribute that handles the color change 
+# (Most likely overwritten by the canvas)
+
+# 3
+# We are going to create a new custom widget/(basically a class in the python file)
+#
+# The "@" means that we are going to inherit attributes from the "Button" widget
+
+# 4 
+# This is how round you want your button to be
