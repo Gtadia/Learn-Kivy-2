@@ -1,0 +1,32 @@
+<MyLayout>
+    BoxLayout: 
+        orientation: "vertical"
+        size: root.width, root.height
+    
+        Label:
+            id: my_label
+            font_size: 32
+            text: "The Switch Is On!"
+
+        Switch:
+            # 1
+            id: my_switch
+            active: True    # 2
+            font_size: 32
+            on_active: root.switch_click(self, self.active)     # 3
+            # disabled: True      # 4
+
+
+
+# 1
+# Swtich ==> Allows users to create an on/off switch
+
+# 2
+# This is the state that it is in   
+# In other words, it's the value of the swtich
+
+# 3
+# We are going to pass in the switch object and the state of the switch as a function.
+
+# 4
+# Disables or Enables the button
