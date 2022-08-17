@@ -1,0 +1,69 @@
+#:import Factory kivy.factory.Factory
+# 1
+
+<MyPopup@Popup>
+    # 2
+    auto_dismiss: True     # 3
+    title: "THIS IS A POPUP BOX"
+    
+    size_hint: (0.6, 0.15)
+    pos_hint: {"x": 0.2, "top": 0.9}
+
+    BoxLayout:
+        # 4
+        orientation: "horizontal"
+        # The close button
+        Label: 
+            text: "Popups can only have one widget!"
+            color: (1, 1, 1)
+        
+        Button: 
+            text: "Close"
+            font_size: 32
+            on_release: root.dismiss()  # 5
+
+<Label>
+    color: (0,0,0)
+
+<MyLayout>
+    BoxLayout:
+        orientation: "vertical"
+        size: root.width, root.height
+
+        Label:
+            text: "Popup Stuff"
+            font_size: 32
+
+        Button:
+            text: "Popup"
+            font_size: 32
+            on_release: Factory.MyPopup().open()  # 6
+            color: (1, 1, 1)
+
+        
+
+# 1 
+# What the Factory package does is that it allows us to define a class and instantiate it anywhere within the app.
+# (This is useful to solve the problem in # 6)
+
+# 2
+# This is how we create a popup 
+
+# 3
+# auto_dismiss
+# When you get a popup and you click somewhere else, the popup will go away/will be dismissed.
+# However, if "auto_dismiss" is disabled/False, then you have to click a button on the popup to close it.
+
+# 4
+# Popups can have only one widget (so in order to "get around" this restriction, we can )
+
+# 5
+# The "dismiss()" and the "open()" functions are the two main functions of popups 
+
+# 6
+# This is an instance of the MyPopup class/widget
+# 
+# This opens the popup once the button is released  (However, we can't access the class because it's not within the 
+# scope of <MyLayout>/its outside of <MyLayout>. THIS IS WHY WE HAVE THE "Factory.")
+#
+# Instead of on_press, we can also do on_release (its pretty self-explanatory what the differences are)

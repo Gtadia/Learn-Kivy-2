@@ -1,0 +1,54 @@
+<MyLayout>
+    BoxLayout:
+        orientation: "vertical"
+        size: root.width, root.height
+
+        Splitter:
+            # 1
+            sizable_from: 'bottom'     # 2 
+            Button: 
+                # 3 
+                text: "Hello World 1"
+                font_size: 32
+            
+        Label: 
+            text: "This is some text"
+            font_size: 32
+
+        Splitter:
+            sizable_from: 'top'    # 4
+            Button: 
+                text: "Hello World 1"
+                font_size: 32
+
+        GridLayout:
+            cols: 2
+
+            Button:
+                text: "Left Button"
+                font_size: 32
+            
+            Splitter: 
+                sizable_from: 'left'
+
+                Button:
+                    text: "Right Button"
+                    font_size: 32
+
+
+
+
+# 1 
+# Splitter — split aparts different sections or Widgets and allow you to resize them on the fly 
+
+# 2
+# This specifies where you can resize the section ('bottom', 'top', 'left', 'right')
+#
+# REMEMBER: It's SIZable, not SIZEable (sizeable with the 'e' on "size")
+
+# 3 
+# The widgets that you want to resize are going to be sectioned off once they go under the scope of the Splitter.
+# (You can have more than one widget to create a "section" that be be resized together)
+
+# 4
+# This is the same thing as adding a splitter with "sizeable_from: 'bottom'" on the widget above/Label widget above

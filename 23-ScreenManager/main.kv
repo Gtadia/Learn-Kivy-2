@@ -1,0 +1,74 @@
+#:kivy 2.1.0
+
+WindowManager:
+    FirstWindow:
+    SecondWindow:
+    # 1
+
+<FirstWindow>:
+    name: "first"
+    # 2(a)
+
+    BoxLayout:
+        orientation: "vertical"
+        size: root.width, root.height
+
+    Label:
+        text: "First Screen"
+        font_size: 32
+        size_hint: 1, 0.5
+        pos_hint: {"x": 0, "top": 1}
+
+    Button:
+        text: "Next Screen"
+        font_size: 32
+        size_hint: 1, 0.5
+        pos_hint: {"x": 0, "top": 0.5}
+
+        on_release: 
+            app.root.current = "second"     # 3(a)
+            root.manager.transition.direction = "left"      # 4(a)
+
+<SecondWindow>:
+    name: "second"
+    # 2(b)
+
+    BoxLayout:
+        orientation: "vertical" 
+        size: root.width, root.height
+
+    Label:
+        text: "Second Screen"
+        font_size: 32
+        size_hint: 1, 0.5
+        pos_hint: {"x": 0, "top": 1}
+
+    Button:
+        text: "Next Screen"
+        font_size: 32
+        size_hint: 1, 0.5
+        pos_hint: {"x": 0, "top": 0.5}
+
+        on_release: 
+            app.root.current = "first"      # 3(b)
+            root.manager.transition.direction = "right"     # 4(b)
+
+
+
+
+# 1
+# We are going to use the WindowManager as the main window and its purpose is to just display the 
+# other windows
+# 
+# That's why we have the other two windows/classes inside of the WindowManger window/class
+
+# 2
+# We're able to take the first and second thing
+
+# 3
+# "app" is the "App" package that was inherited by the class that builds the app ("AwesomeApp")
+# "root" is the "WindowManager" 
+# "current" is the current screen that it is on
+
+# 4
+# This is the attribute necessary to specify the direction of the transition

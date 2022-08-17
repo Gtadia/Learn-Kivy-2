@@ -1,0 +1,38 @@
+<MyLayout>
+    BoxLayout:
+        orientation: "vertical"
+        size: root.width, root.height
+
+        Label: 
+            id: click_label
+            text: "Pick Favorite Pizza Topping Below"
+            font_size: 32
+
+        Spinner:
+            # 1
+            id: spinner_id
+            text: "Favorite Pizza"
+            font_size: 32
+            values: ["Pepperoni", "Cheese", "Mushroom"]      # 2 
+
+            on_text: root.spinner_clicked(spinner_id.text) # 3 
+
+        Label:
+            # 4
+
+
+    
+# 1
+# The spinner is a type of drop down menu (basically the same thing as the list dropdown menu)
+#
+# Normally, the dropdown menu wants to go below but the issue is that sometimes, you might not have enough space below
+# so the dropdown menu shows up above the menu button
+
+# 2 
+# The values that go in the dropdown menu go in the "values" attributes as a list
+
+# 3 
+# on_text is basically on_press except that on_text runs the function when a menu value/item is clicked
+
+# 4 
+# This is just an empty label just here to create blank space for the dropdown menu to work
