@@ -2,7 +2,6 @@ from kivy.app import App
 from kivy.uix.widget import Widget
 from kivy.lang import Builder  
 from kivy.core.window import Window
-from kivy.uix.slider import Slider
 
 Builder.load_file("Kivy_File.kv")
 
