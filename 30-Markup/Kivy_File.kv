@@ -1,0 +1,49 @@
+<MyLayout>
+    BoxLayout: 
+        orientation: "vertical"
+        size: root.width, root.height
+    
+    BoxLayout:
+        orientation: "vertical"
+        size: root.width, root.height
+
+        Label: 
+            markup: True        # 1(a)
+            font_size: 32
+            text: "This is [color=#a12c3c][b]Bold[/b][/color] [font=Roboto-Regular]Text[/font]"        # 2(a)
+
+        Label: 
+            markup: True        # 1(b)
+            font_size: 32
+            text: "This is [size=150][i]Italics[/i][/size] Text"     # 2(b)
+
+        Label:
+            markup: True        # 1(c) 
+            font_size: 32
+            text: "[sup]Up[/sup] and [sub]Down[/sub]"       # 2(c)
+
+        Button: 
+            markup: True        # 1(d)
+            font_size: 32
+            text: "[u]Click[/u] [s]ME[/s]"          # 2(d)
+
+
+
+# 1
+# markup ==> basically what HTML (HypterText MARKUP Language) is
+#
+# Markup uses tags to change certain things.
+#
+# If we want to use markup, we have to tell kivy that we want to use it 
+
+# 3
+# This is how you "markup" certain text to make them 
+#   BOLD
+#   ITALICIZED
+#   UNDERLINED
+#   STRIKED OUT
+#   CHANGE THE FONT SIZE
+#   CHANGE THE FONT
+#   SUPERSCRIPT
+#   SUBSCRIPT
+#   CHANGE COLOR

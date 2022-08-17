@@ -16,4 +16,9 @@
             text: "Press Me!"
             pos_hint: {'center_x': 0.5}
             font_size: 50
-            on_press: root.animate_it(self)
+            on_press: root.animate_it(self)     # 1
+
+
+# 1
+# Because we're passing in "self", the python function is able to know which widget it's modifiying and 
+# can apply the animation to THIS button and not some random button or every button
