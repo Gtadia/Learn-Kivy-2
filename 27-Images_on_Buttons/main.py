@@ -2,13 +2,16 @@ from kivy.app import App
 from kivy.uix.widget import Widget
 from kivy.lang import Builder  
 from kivy.core.window import Window
-from kivy.uix.tabbedpanel import TabbedPanel        # You have to import this packag in order to have tabs in our panel
 
 Builder.load_file("Kivy_File.kv")
 
-class MyLayout(TabbedPanel):    # Instead of using widgets, we use "TabbedPanel"
-    pass
+class MyLayout(Widget):
+    def button_pressed(self):
+        self.ids.my_image.source = "images/button_pressed.jpeg"
 
+    def button_released(self):
+        self.ids.my_image.source = "images/button.png"
+        self.ids.label_id.text = "You Pressed the Button"
 
 class MyApp(App):   
     def build(self):

@@ -1,6 +1,42 @@
 <MyLayout>
-    BoxLayout:
-        orientation: "vertical"
-        size: root.width, root.height
+    do_default_tab: False      # 1
 
-    
+    tab_pos: "left_top"     # 2 
+
+    TabbedPanelItem: 
+        # 3(a)
+        text: "Tab 1"
+        Label:
+            text: "This is the contents of Tab 1"
+
+    TabbedPanelItem:
+        # 3(b) 
+        text: "Tab 2"
+        BoxLayout:
+            Label:
+                text: "Press The Button ==> "
+            Button: 
+                text: "Click Me"
+
+    TabbedPanelItem: 
+        # 3(c)
+        text: "Tab 3"
+        AsyncImage: 
+            source: "https://www.topgear.com/sites/default/files/2022/07/N%20Vision%2074_05_0.jpg"
+
+
+# 1 
+# do_default_tab will dedicate a certain tab to be the main "default" tab
+
+# 2
+# tab_pos —— The position of where the tabs should be located
+# 
+# Possible positions of the tabs
+# top_left      top_mid         top_right
+# bottom_left   bottom_mid      bottom_right
+# left_top      left_mid        left_bottom
+# right_top     right_mid       right_bottom
+
+# 3
+# TabbedPanelItem — Used to create a single tab. Have a bunch of TabbedPanelItems together and you get multiple 
+# tab 

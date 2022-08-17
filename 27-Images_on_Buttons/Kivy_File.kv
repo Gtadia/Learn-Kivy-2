@@ -1,0 +1,43 @@
+<MyLayout>
+    BoxLayout: 
+        orientation: "vertical"
+        size: root.width, root.height
+
+        padding: 50
+        spacing: 20
+
+        Label: 
+            id: label_id        # 2(b)
+            text: "Hello World!"
+            font_size: 32
+
+        Button:
+            # text: "This is a button"
+            # font_size: 32
+
+            pos_hint: {'center_x': 0.5}
+
+            background_normal: ''
+            background_color: 0, 0, 0, 0    # 1(c)
+
+            on_press: root.button_pressed()
+            on_release: root.button_released()
+
+            Image: 
+                id: my_image        # 2(a)
+                source: "images/button.png"     # 1(a)
+                center_x: self.parent.center_x 
+                center_y: self.parent.center_y  # 1(b)
+                
+                allow_stretch: True
+                keep_ratio: False
+
+
+
+# 1
+# (a)    In order to get an image as a button, have the "Image" widget go under the Button" widget
+# (b)    and then moving the image to the center of the button
+# (c)    and then we make the button transparent so that we can't see it
+
+# 2
+# REMEMBER: when writing the id, don't write the name of the id as a string
